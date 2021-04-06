@@ -10,19 +10,19 @@ def determine_winner(choice1, choice2):
     """
     winners = {
         "rock":{
-            "rock": None, # represents a tie
+            "rock": None, 
             "paper": "paper",
             "scissors": "rock",
         },
         "paper":{
             "rock": "paper",
-            "paper": None, # represents a tie
+            "paper": None, 
             "scissors": "scissors",
         },
         "scissors":{
             "rock": "rock",
             "paper": "scissors",
-            "scissors": None, # represents a tie
+            "scissors": None, 
         },
     }
     winning_choice = winners[choice1][choice2]
@@ -53,49 +53,7 @@ if __name__ == "__main__":
     # DETERMINATION OF WINNER
     #
 
-    #if u == "rock" and c == "rock":
-    #    print("It's a tie!")
-    #elif u == "rock" and c == "paper":
-    #    print("The computer wins")
-    #elif u == "rock" and c == "scissors":
-    #    print("The user wins")
-    #
-    #elif u == "paper" and c == "rock":
-    #    print("The computer wins")
-    #elif u == "paper" and c == "paper":
-    #    print("It's a tie!")
-    #elif u == "paper" and c == "scissors":
-    #    print("The user wins")
-    #
-    #elif u == "scissors" and c == "rock":
-    #    print("The computer wins")
-    #elif u == "scissors" and c == "paper":
-    #    print("The user wins")
-    #elif u == "scissors" and c == "scissors":
-    #    print("It's a tie!")
-
-    #if u == "rock":
-    #    if c == "rock":
-    #        print("It is a tie!")
-    #    elif c == "paper":
-    #        print("Oh, better luck next time. The computer won")
-    #    elif c == "scissors":
-    #        print("Great Job! You WON")
-    #elif u == "paper":
-    #    if c == "rock":
-    #        print("Great Job! You WON")
-    #    elif c == "paper":
-    #        print("It is a tie!")
-    #    elif c == "scissors":
-    #        print("Oh, better luck next time. The computer won")
-    #elif u == "scissors":
-    #    if c == "rock":
-    #        print("Oh, better luck next time. The computer won")
-    #    elif c == "paper":
-    #        print("Great Job! You WON")
-    #    elif c == "scissors":
-    #        print("It is a tie!")
-
+    #refactored version
     winner = determine_winner(u,c)
 
     if winner == u:

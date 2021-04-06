@@ -76,15 +76,20 @@ if __name__ == "__main__":
     receipt_id = checkout_at.strftime('%Y-%M-%d-%H-%m-%S')
     receipt_filepath = os.path.join(os.path.dirname(__file__), "..", "receipts", f"{receipt_id}.txt")
 
+    
+
     with open(receipt_filepath, "w") as receipt_file:
         receipt_file.write("------------------------------------------")
-        for p in selected_products:
-            receipt_file.write("\nSELECTED PRODUCT: " + p["name"] + "   " + '${:.0f}'.format(p["price"]))
-
+        receipt_file.write("\nCHECKOUT AT: " + str(checkout_at.strftime("%Y-%M-%d %H:%m:%S")))
         receipt_file.write("\n---------")
-        receipt_file.write(f"\nSUBTOTAL: {subtotal}")
-        receipt_file.write(f"\nTAX: {subtotal * 0.875}")
-        receipt_file.write(f"\nTOTAL: {((subtotal * 0.875) + subtotal)}")
+        for p in selected_products:
+            receipt_file.write("\nSELECTED PRODUCT: " + p["name"] + "   " + format_usd(p["price"]))
+
+        
+        receipt_file.write("\n---------")
+        receipt_file.write(f"\nSUBTOTAL: {format_usd(subtotal)}")
+        receipt_file.write(f"\nTAX: {format_usd(subtotal * 0.0875)}")
+        receipt_file.write(f"\nTOTAL: {format_usd(subtotal * 0.0875 + subtotal)}")
         receipt_file.write("\n---------")
         receipt_file.write("\nTHANK YOU! PLEASE COME AGAIN SOON!")
         receipt_file.write("\n---------")
